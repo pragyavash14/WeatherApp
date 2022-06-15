@@ -54,9 +54,10 @@ const updateUI = data => {
         <span>&degC</span>
     </div>
     `;
-    //add day/night image
+    //add weather icon image
     icon.setAttribute('src',`img/icons/${weatherData.WeatherIcon}.svg`);
     
+    //add day/night image
     let weatherSrc = null;
 
     if(weatherData.IsDayTime)
@@ -64,8 +65,6 @@ const updateUI = data => {
     else timeSrc = 'img/night.svg';
 
     time.setAttribute('src',timeSrc);
-
-
 
     //make card div display if hidden:
     if(card.classList.contains('d-none'))
