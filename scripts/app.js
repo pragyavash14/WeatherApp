@@ -69,4 +69,14 @@ cityForm.addEventListener('submit', e => {
     updateCity(city)
         .then(data => updateUI(data))
         .catch(err => console.log(err));
+
+    //set local storage for refreshing the page with already loaded data
+    localStorage.setItem('city',city);
 })
+
+//this code is not inside any event listener so it will automatically run every time application starts or refreshes
+if(localStorage.getItem('city')){
+    updateCity(localStorage.getItem('city'))
+        .then(data => updateUI(data))
+        .catch(err => console.log(err));
+}
